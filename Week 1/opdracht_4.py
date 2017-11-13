@@ -14,10 +14,9 @@ The chance two people share their birthday
 
 def birthdayChances():
 	count = 0
-	chance = 0
-	birthdays = []
 
 	for i in range(100):
+		birthdays = []
 		for i in range(23):
 			birthdays.append(random.randint(1, 365))
 
@@ -27,8 +26,7 @@ def birthdayChances():
 					if birthdays[x] == birthdays[y]:
 						count += 1;
 
-	chance = count / 100
 
-	return chance
+	return count
 
-print(birthdayChances())
+print("Aantal keer: ", birthdayChances())

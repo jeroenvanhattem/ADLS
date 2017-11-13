@@ -19,4 +19,4 @@ def myMax(a):
 			highest = x
 	return highest
 
-print(myMax(array))
+print(myMax(array)) 

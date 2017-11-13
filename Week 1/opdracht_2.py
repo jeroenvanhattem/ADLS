@@ -23,4 +23,4 @@ def getNumbers(a):
 			b.append(x)
 	return b
 
-print(getNumbers(a))
+print(getNumbers(a)) 

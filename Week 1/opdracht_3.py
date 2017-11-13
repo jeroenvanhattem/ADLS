@@ -37,4 +37,4 @@ def getPrimes(a):
 					a.remove(y)
 	return a
 
-print(getPrimes(array))
+print(getPrimes(array)) 
