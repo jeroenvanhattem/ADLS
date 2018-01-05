@@ -1,56 +1,74 @@
-class stack:
-	def __init__(self):
-		self.stack_list = []
+import opdracht_2
 
-	def push(self, x):
-		self.stack_list.append(x)
+valid = {
+	"(" : ")",
+	"[" : "]",
+	"{" : "}",
+	"<" : ">"
+}
 
-	def pop(self):
-		if(len(self.stack_list) != 0):
-			x = self.stack_list[len(self.stack_list) - 1]
-			self.stack_list.remove(x)
-			return x
-		else:
-			return "Empty"
+def check_brackets(value):
+    """
+    This function requires you to push a list of brackets to the stack. When you did that, you'll have to check the stack using the check() function
+    
+    Parameters
+    ----------
+    brackets_to_push	:	List
+        A list containing several brackets
+        
+    Return
+    ------
+    Feedback	:	String
+        If the passed list is all right, a True value will be returned
+        
+        If the passed list contains invalid characters, a False value and a message will be returned
+        
+        If the passed list contains an invalid use of brackets, the current stack will be returned
+    
+    Example
+    -------
+    >>> #value = ['(',')']
+    >>> return = True
+    
+    """
+    bracket_stack = opdracht_2.stack()
+    for given in value:
+        if given in valid.keys():
+            bracket_stack.push(given)
+        elif given in valid.values():
+            for x in valid.values():
+                if given == x:
+                    bracket_stack.pop()
+        else:
+            print(given + " is not allowed | Return: ", end=" ")
+            return False
 
-	def peek(self):
-		if(len(self.stack_list) != 0):
-			x = self.stack_list[len(self.stack_list) - 1]
-			return x
-		else:
-			return "Empty"
-
-	def at(self, n):
-		if(len(self.stack_list) != 0):
-			x = self.stack_list[n]
-			return x
-		else:
-			return "Empty"
-
-	def remove(self, x):
-		self.stack_list.remove(x)
-
-	def is_empty(self):
-		if(len(self.stack_list) == 0):
-			return True
-		else: 
-			return False
+    if bracket_stack.is_empty():
+        return True
+    else:
+        # print(bracket_stack.peek())
+        print("It goes wrong at: " + str(bracket_stack.peek()))
+        return str(bracket_stack.peek())
 
 
-def check_brackets(x):
-	brackets = stack()
-	opening = ["{", "[", "("]
-	closing = ["}", "]", ")"]
 
-	for i in x:
-		brackets.push(i)
 
-	for i in range(len(x)):
-		y = brackets.at(i)
-		if(y in closing):
-			if(brackets.at(i - 1) in opening):
-				if(opening.index[i] == closing.index[i]):
-					brackets.remove(brackets[i])
-					brackets.remove(brackets[i])
+# First test
+print("Test 1: ", end="")
+brackets_to_push = ['<', '(', ')','>']
+result = check_brackets(brackets_to_push)
+print(result)
 
-print(check_brackets("{[(})]"))
+
+# Second test
+print("Test 2: ", end="")
+brackets_to_push = ['<', '(', 'a','>']
+result = check_brackets(brackets_to_push)
+print(result)
+
+
+# Third test
+print("Test 3: ", end="")
+brackets_to_push = ['<', '(', '(','>']
+result = check_brackets(brackets_to_push)
+print(result)

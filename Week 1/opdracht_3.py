@@ -45,28 +45,6 @@ def modulo(a, b):
 
 def getPrimes(a):
 
-	# for x in a:
-	# 	i = x * 2
-	# 	if(x != 2):
-	# 		if(i < len(a)):
-	# 			a.remove(a.index(i))
-
-	# for x in a:
-	# 	i = x * 3
-	# 	print(i)
-	# 	if(i != x):
-	# 		if(i < len(a)):
-	# 			a.remove(a.index(i))
-	# for x in a:
-	# 	i = x * 5
-	# 	if(i < len(a)):
-	# 		a.remove(a.index(i))
-	# for x in a:
-	# 	i = x * 7
-	# 	if(i < len(a)):
-	# 		a.remove(a.index(i))
-
-
 	for x in a:
 		if x != 2:
 			if modulo(x, 2) == True:

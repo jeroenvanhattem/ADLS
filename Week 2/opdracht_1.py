@@ -22,9 +22,9 @@ def machtv3(a, n):
 			n = n / 2
 		else:
 			x = (x * a)
-			n = n - 1
+			n = n // 2
 			counter = counter + 1
 	print("Counter: ", counter)
 	return "Resultaat: ", x
 
-print(machtv3(3,10000))
+print(machtv3(3,5))

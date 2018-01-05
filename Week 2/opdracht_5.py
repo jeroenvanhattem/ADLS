@@ -1,7 +1,7 @@
+import random
+
 def swap(a,i,j):
 	a[i],a[j] = a[j],a[i]
-
-import random
 
 def qsort(a,low=0,high=-1):
 	if high == -1:
@@ -18,6 +18,8 @@ def qsort(a,low=0,high=-1):
 				qsort(a,low,m-1)
 	return a
 
-a = [6, 4, 8, 6, 4, 64, 75, 234, 43,5, -2, -20]
+a  = [0]
+for i in range(10):
+	a.append(random.randint(1, 100))
 
 print(qsort(a))
