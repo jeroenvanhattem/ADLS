@@ -1,9 +1,11 @@
 """
 The myMax(a) function returns the highest number from a list passed as parameter.
+
 Parameters
 ----------
 a : list
 List container numbers
+
 Return
 ------
 highest: int

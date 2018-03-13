@@ -1,12 +1,34 @@
-def check(a,i): # ga na of i aan a toegevoegd kan worden
+"""
+Description
+	Find a solution to the problem
+
+Parameters
+----------
+column : int
+	The location in the first row on which the queen will be located.
+
+Return
+------
+bool
+	Return True when there will be no interference with other queens
+"""
+def check(a,i):
 	n = len(a)
 	return not (i in a or
-		 # niet in dezelfde kolom
 		 i+n in [a[j]+j for j in range(n)] or
-		 # niet op dezelfde diagonaal
 		 i-n in [a[j]-j for j in range(n)])
-		# niet op dezelfde diagonaal
 
+
+"""
+Description
+	Print te board
+
+Parameters
+----------
+a : list
+	The chessboard with the queens
+
+"""
 def printQueens(a):
 	n = len(a)
 	for i in range(n):
@@ -17,6 +39,17 @@ def printQueens(a):
 				print("*",end= " ")
 		print()
 	print()
+
+
+"""
+Description
+	Find a solution to the problem
+
+Parameters
+----------
+column : int
+	The location in the first row on which the queen will be located.
+"""
 
 def rsearch(column):
 
@@ -33,21 +66,27 @@ def rsearch(column):
 	del a[-1]
 	return False
 
+"""
+Description
+	Call the rsearch() function for every a[i]
 
-
-
+Parameters
+----------
+N : int
+	The amount of wanted solutions
+"""
 
 def rsearch_all(N):
 	# global solutions
 
 	for i in range(N):
 		if rsearch(i):
-			print("Oplossing: ", i + 1)
+			print("Solution: ", i + 1)
 			printQueens(a)
 		del a[:]
 
 
-a = [] # a geeft voor iedere rij de kolompositie aan
+a = []
 solutions = []
 t = 0
 N = 8

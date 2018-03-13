@@ -1,9 +1,26 @@
 import csv
 import sys
 
+"""
+Definition
+	Function to write to a csv file
+
+Parameters
+----------
+dict : dictionary
+	The dictionary containing the words as keys, and the count as values.
+
+"""
+def csv_writer(dict):
+	with open("E:/School/2017-2018/blok_2/Algorithms and Datastructures/assignments/Week 3/opdracht_4.csv", "w") as dest:
+		file = csv.writer(dest, sys.stdout, delimiter=',', lineterminator='\n')
+		for key, value in dict.items():
+			file.writerow( (key, value) )
+	dest.close()
+
 class method1:
 	def writeToFile(self, dict):
-		with open("opdracht_4.csv", "w") as csvfile:
+		with open("E:/School/2017-2018/blok_2/Algorithms and Datastructures/assignments/Week 3/opdracht_4.csv", "w") as csvfile:
 			file = csv.writer(csvfile, sys.stdout, delimiter=',', lineterminator='\n')
 			for key, value in dict.items():
 				file.writerow( (key, value) )
@@ -11,7 +28,7 @@ class method1:
 
 	def countWords(self):
 		words_dict = {}
-		with open("opdracht_4.txt", "r") as file:
+		with open("E:/School/2017-2018/blok_2/Algorithms and Datastructures/assignments/Week 3/opdracht_4.txt", "r") as file:
 			lines = file.read().splitlines()
 			for line in lines:
 				if not line == "":
@@ -31,64 +48,64 @@ class TrieNode:
 		self.d = {}
 		self.n = {}
 
-	def insert(self, woord):
-		self.d[woord] = TrieNode()
+	def insert(self, word):
+		self.d[word] = TrieNode()
 
 class Trie:
 	def __init__(self):
 		self.root = TrieNode()
 
-	def insert(self, woord):
+	def insert(self, word):
 		current = self.root
 
 		if self.contains(word):
-			if woord in current.n:
-				current.n[woord] = (current.n.get(woord) + 1)
+			if word in current.n:
+				current.n[word] = (current.n.get(word) + 1)
 			else:
-				current.n.update({woord: 2})
+				current.n.update({word: 2})
 			return
 
-		for i in range(len(woord)):
-			if woord[i] in current.d:
-				current = current.d[woord[i]]
+		for i in range(len(word)):
+			if word[i] in current.d:
+				current = current.d[word[i]]
 			else:
-				# woord is hier volledig
-				while i < len(woord):
-					current.insert(woord[i])
-					current = current.d[woord[i]]
+				# Complete word
+				while i < len(word):
+					current.insert(word[i])
+					current = current.d[word[i]]
 					i += 1
-		current.w = woord
+		current.w = word
 
-	def find_words(self, begin_kar):
-		gevonden_worden = []
+	def find_words(self, begin_char):
+		found_words = []
 
-		bovenste_node = self.root
-		for kar in begin_kar:
-			if kar in bovenste_node.d:
-				bovenste_node = bovenste_node.d[kar]
+		top_node = self.root
+		for char in begin_char:
+			if char in top_node.d:
+				top_node = top_node.d[char]
 			else:
-				return gevonden_worden
+				return found_words
 
-		if bovenste_node == self.root:
-			queue = [TrieNode for key, TrieNode in bovenste_node.d.items()]
+		if top_node == self.root:
+			queue = [TrieNode for key, TrieNode in top_node.d.items()]
 		else:
-			queue = [bovenste_node]
+			queue = [top_node]
 
 		while queue:
 			current = queue.pop()
 			if current.w != None:
-				gevonden_worden.append(current.w)
+				found_words.append(current.w)
 
 			queue = [TrieNode for key, TrieNode in current.d.items()] + queue
 
-		return gevonden_worden
+		return found_words
 
 
-	def contains(self, woord):
+	def contains(self, word):
 		current = self.root
-		for kar in woord:
-			if kar in current.d:
-				current = current.d[kar]
+		for char in word:
+			if char in current.d:
+				current = current.d[char]
 			else:
 				return False
 
@@ -103,7 +120,7 @@ class method2:
 	def run(self):
 		trie = Trie()
 
-		with open("opdracht_4.txt", "r") as file:
+		with open("E:/School/2017-2018/blok_2/Algorithms and Datastructures/assignments/Week 3/opdracht_4.txt", "r") as file:
 			lines = file.read().splitlines()
 			for line in lines:
 				if not line == "":

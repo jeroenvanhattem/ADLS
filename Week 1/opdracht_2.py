@@ -10,7 +10,7 @@ A string containing letters and numbers.
 Return
 ------
 b: list
-A list container only numbers of list a
+A list that contains the extracted numbers from list A
 """
 
 a = 'een123zin45 6met-632meerdere+7777getallen'

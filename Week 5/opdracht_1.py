@@ -39,13 +39,13 @@ class Vertex:
 		return self.data < other.data 
 
 class BFS:
-	def is_connected(self, G, s):	# G is de graaf, s is de root-node
+	def is_connected(self, G, s):
 		V = self.vertices(G)
 		s.predecessor = None
 		s.distance = 0
 
 		for v in V:
-			if v!= s:	# Is de huidige node niet de root?
+			if v!= s:
 				v.distance = math.inf
 		q = stack()
 		q.push(s)
@@ -57,7 +57,6 @@ class BFS:
 					v.predecessor = u
 					q.push(v)
 			print(v)
-		# return True
 
 	def vertices(self, G):
 		return sorted(G)		
@@ -74,15 +73,11 @@ G = { v[0]:[v[1],v[4]],
 	  v[4]:[v[0],v[1],v[3]]
 	 }
 
-graaf = BFS()
+graph = BFS()
 
-print("Vertices(G): ", graaf.vertices(G))
-print("Edges(G): ", graaf.edges(G))
+print("Vertices(G): ", graph.vertices(G))
+print("Edges(G): ", graph.edges(G))
 
-# if(graaf.is_connected(G, v[1])):
-print(graaf.is_connected(G, v[0]))
-print(graaf.is_connected(G, v[1]))
-print(graaf.is_connected(G, v[2]))
-	# print("Graaf is verbonden")
-# else:
-# 	print("Graaf is niet verbonden")
+print(graph.is_connected(G, v[0]))
+print(graph.is_connected(G, v[1]))
+print(graph.is_connected(G, v[2]))

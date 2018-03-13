@@ -1,3 +1,5 @@
+import math
+
 def machtv1(a,n):
 	return a**n
 
@@ -9,22 +11,32 @@ def machtv2(a,n):
 
 	return m
 
+"""
+Description
+The machtv3(a) function calculates powers according to log(n)
+
+Parameters
+----------
+a : base
+n : power
+
+Return
+------
+result: int
+	The result : a^n
+"""
 def machtv3(a, n):
 	assert n > 0
-
-	x = a
-	counter = 0
-
-	m = 1
+	result = 1
 	while n > 0:
 		if n % 2 == 0:
-			x = (x * a)
-			n = n / 2
-		else:
-			x = (x * a)
 			n = n // 2
-			counter = counter + 1
-	print("Counter: ", counter)
-	return "Resultaat: ", x
+			a = a ** 2
+		else:
+			n-=1
+			result *= a
+	return result
 
-print(machtv3(3,5))
+n = 10000
+print(machtv3(2,n))
+print(str(n) + " -> " + str(math.log(n)) + " multiplications")

@@ -1,9 +1,31 @@
 class BinarySearchNode:
+	"""
+	Definition
+		Initialize the node
+	
+	Parameters
+	----------
+	element : item
+		This will be the node
+	left : item
+		Left child
+	rightt : item
+		Right child
+	"""
 	def __init__(self, element = None, left = None, right = None):
 		self.element = element
 		self.left = left
 		self.right = right
 
+	"""
+	Definition
+		The way the node will be printed
+	
+	Parameters
+	----------
+	nspaced : int
+		Amount of extra spaces
+	"""
 	def __repr__(self,nspaces=0):
 		s1 = ''
 		if self.right:
@@ -14,6 +36,15 @@ class BinarySearchNode:
 			s3 = self.left.__repr__(nspaces + 3)
 		return s1 + s2 + s3
 
+	"""
+	Definition
+		Get the size of the node, including the children.
+
+	Return
+	------
+	s : int
+		The size of the node, including the children
+	"""
 	def size(self):
 		s = 1
 		if self.left:
@@ -22,6 +53,20 @@ class BinarySearchNode:
 			 s += self.right.size()
 		return s
 
+	"""
+	Definition
+		Search recursive for a node
+	
+	Parameters
+	----------
+	e : node
+		The node to be found
+
+	Return
+	------
+	current : BinarySearchNode
+		Return the node, if found
+	"""
 	def rsearch(self, e, i):
 		current = self
 		found = False
@@ -45,6 +90,15 @@ class BinarySearchNode:
 			print(current)
 			return self.rsearch(e, i - 1)
 
+	"""
+	Definition
+		Calculate the maximum element
+	
+	Return
+	------
+	highest : BinarySearchNode
+		The highest element
+	"""
 	def max(self):
 		current = self
 
@@ -55,7 +109,15 @@ class BinarySearchNode:
 
 		return highest
 
-
+	"""
+	Definition
+		Insert the node recursively
+	
+	Parameters
+	----------
+	e : item
+		Node to be added
+	"""
 
 	def rinsert(self, e):
 		parent = self
@@ -122,9 +184,6 @@ class BinarySearchTree:
 				return True
 		return False
 
-	def showLevelOrder(self):
-		print("stuff")
-
 
 myTree = BinarySearchTree()
 
@@ -140,4 +199,3 @@ myTree.rinsert(3)
 # print(myTree.rsearch(4, myTree.size()))
 print(myTree.max())
 # print(myTree)
-# myTree.showLevelOrder()

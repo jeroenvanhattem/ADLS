@@ -1,7 +1,7 @@
 import random
 
 """
-description
+Description
 The birthdayChances() function will calculate the chance of two people in a group of 23 sharing their birthday.
 
 Return
@@ -9,9 +9,6 @@ Return
 chance: int
 The chance two people share their birthday
 """
-
-
-
 def birthdayChances():
 	count = 0
 
@@ -29,4 +26,4 @@ def birthdayChances():
 
 	return count
 
-print("Aantal keer: ", birthdayChances())
+print("Times: ", birthdayChances())

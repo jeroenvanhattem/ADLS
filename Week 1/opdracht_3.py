@@ -1,5 +1,30 @@
+array = list(range(2, 1001))
 """
-description
+Decription
+The modulo(a,b) function calculates a % b and returns the answer.
+
+Parameters
+----------
+a : int
+b : int
+
+Return
+------
+answer: a
+The modulo.
+"""
+def modulo(a, b):
+	while a >= b:
+		a = a - b
+		# print(a)
+		if(a == 0):
+			return True
+		elif ((a < b) and (a > 0)):
+			return False
+		# print(a)
+
+"""
+Description
 The getPrimes(a) function will search for all prime numbers under 1000 using the Sieve of Eratosthenes. These will be returned in a list. 
 ----------
 a : list
@@ -30,19 +55,6 @@ A list container all prime numbers under 1000
 877    881    883    887    907    911    919    929    937    941 
 947    953    967    971    977    983    991    997
 """
-
-array = list(range(2, 1001))
-
-def modulo(a, b):
-	while a >= b:
-		a = a - b
-		# print(a)
-		if(a == 0):
-			return True
-		elif ((a < b) and (a > 0)):
-			return False
-		# print(a)
-
 def getPrimes(a):
 
 	for x in a:

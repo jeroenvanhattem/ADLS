@@ -1,15 +1,38 @@
 class ListNode:
+	"""
+	Definition
+		Initialize the list node with data and the next node
+	
+	Parameters
+	----------
+	data : item
+		The data that the node contains
+	next : ListNode
+		The next node
+	"""
 	def __init__(self,data,next):
 		self.data = data
 		self.next = next
 
+	"""
+	Definition
+		The way the node will be printed
+	"""
 	def __repr__(self):
 		return str(self.data)
 
 class MyCircularLinkedList:
+	"""
+	Definition
+		Set the tail to None
+	"""
 	def __init__(self):
 		self.tail = None
 
+	"""
+	Definition
+		The way the node will be printed. As long this node is not the last node, it will print " -> " plus the next node
+	"""
 	def __repr__(self):
 		s = ''
 		if not self.tail:
@@ -22,6 +45,15 @@ class MyCircularLinkedList:
 			s += str(current)
 		return s
 
+	"""
+	Definition
+		Add the passed parameter to the end
+	
+	Parameters
+	----------
+	e : item
+		Make a ListNode with e and use it as the tail
+	"""
 	def append(self, e):
 		if not self.tail:
 			self.tail = ListNode(e, None)
@@ -36,6 +68,15 @@ class MyCircularLinkedList:
 			current.next = x
 			self.tail = current.next
 
+	"""
+	Definition
+		Delete the node containing the passed parameter from the list
+	
+	Parameters
+	----------
+	e : item
+		Node to be deleted
+	"""
 	def delete(self,e):
 		if not self.tail:
 			print("Can't delete node, list is empty")

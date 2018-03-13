@@ -9,6 +9,7 @@ valid = {
 
 def check_brackets(value):
     """
+    Description
     This function requires you to push a list of brackets to the stack. When you did that, you'll have to check the stack using the check() function
     
     Parameters
@@ -20,16 +21,13 @@ def check_brackets(value):
     ------
     Feedback	:	String
         If the passed list is all right, a True value will be returned
-        
         If the passed list contains invalid characters, a False value and a message will be returned
-        
         If the passed list contains an invalid use of brackets, the current stack will be returned
     
     Example
     -------
-    >>> #value = ['(',')']
-    >>> return = True
-    
+    #value = ['(',')']
+    return = True
     """
     bracket_stack = opdracht_2.stack()
     for given in value:

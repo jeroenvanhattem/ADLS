@@ -1,5 +1,18 @@
 binary_value = ""
 
+"""
+Description
+	Recursive function to get the binary number from a decimal number
+
+Parameters
+----------
+number	:	int
+	The number of which you want the binary number
+	
+Return
+------
+binary_value : string
+"""
 def binary(number):
 	assert a >= 0
 	
