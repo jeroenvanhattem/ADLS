@@ -2,5 +2,3 @@ Queens problem
 
 Pas functie aan, ipv te returnen, de gevonden oplossing toevoegen aan het lijst met oplossingen. 
 Begin op kolom 1, ga dan voor de volgende oplossing naar kolom 2 en eindig op N
-
-e/School\2017-2018/blok_2/Algorithms and Datastructures/assignments
